@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f6f8">
+
+  <title>تعطیلی موقت | اطلاعیه رسمی</title>
+
+  <meta name="description"
+        content="این وب‌سایت به‌طور موقت از دسترس خارج شده است. برای ارتباط با مدیریت از طریق ایمیل اقدام کنید.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --text: #20242c;
+      --muted: #737b89;
+      --border: #e7e9ee;
+      --accent: #4c607b;
+      --soft: #eef1f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% 0%,
+          #ffffff 0%,
+          transparent 65%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      overflow-x: hidden;
+    }
+
+    /* Soft background decoration */
+    .decoration {
+      position: fixed;
+      width: 340px;
+      height: 340px;
+      border: 1px solid #dfe3e9;
+      border-radius: 50%;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+      animation: rotate 40s linear infinite;
+    }
+
+    .decoration::before,
+    .decoration::after {
+      content: "";
+      position: absolute;
+      border: 1px solid #e3e6ec;
+      border-radius: 50%;
+    }
+
+    .decoration::before {
+      inset: 25px;
+    }
+
+    .decoration::after {
+      inset: 55px;
+    }
+
+    .decoration.one {
+      top: -210px;
+      right: -160px;
+    }
+
+    .decoration.two {
+      bottom: -240px;
+      left: -180px;
+      animation-direction: reverse;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 670px;
+      animation: appear 1s ease both;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      direction: ltr;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #8794a5;
+      box-shadow: 0 0 0 4px #8794a51a;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(225, 228, 234, 0.9);
+      border-radius: 28px;
+      padding: 32px 38px;
+      text-align: center;
+      box-shadow:
+        0 25px 80px rgba(38, 48, 64, 0.07),
+        0 2px 8px rgba(38, 48, 64, 0.025);
+      backdrop-filter: blur(14px);
+    }
+
+    .animation-box {
+      width: 100%;
+      max-width: 230px;
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    dotlottie-wc {
+      display: block;
+      width: 100%;
+      height: 190px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: #f8f9fb;
+      padding: 7px 13px;
+      border-radius: 50px;
+      font-size: 11px;
+      color: #67758a;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8292a8;
+    }
+
+    h1 {
+      font-size: clamp(25px, 5vw, 35px);
+      font-weight: 800;
+      line-height: 1.9;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      max-width: 470px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 2.5;
+    }
+
+    .separator {
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #e1e4e9,
+        transparent
+      );
+      margin: 27px 0;
+    }
+
+    .contact {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      background: linear-gradient(135deg, #ffffff, #f8f9fb);
+      text-align: right;
+    }
+
+    .contact-heading {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 12px;
+    }
+
+    .mail-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .mail-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-subtitle {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .email {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 12px 13px;
+      border-radius: 11px;
+      direction: ltr;
+      text-decoration: none;
+      color: #364b66;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .email:hover {
+      border-color: #b5c0cf;
+      background: #fbfcfe;
+    }
+
+    .email svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 2;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      color: #8a919e;
+      font-size: 11px;
+      line-height: 2.2;
+    }
+
+    footer .brand {
+      color: #606b7c;
+      font-weight: 600;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 13px;
+      }
+
+      .card {
+        padding: 25px 19px;
+        border-radius: 23px;
+      }
+
+      dotlottie-wc {
+        height: 165px;
+      }
+
+      .animation-box {
+        max-width: 205px;
+      }
+
+      h1 {
+        letter-spacing: -0.5px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+
+      .contact {
+        padding: 15px;
+      }
+
+      .email {
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="decoration one"></div>
+  <div class="decoration two"></div>
+
+  <main class="page">
+
+    <div class="topline">
+      <span class="status-dot"></span>
+      TEMPORARY SERVICE NOTICE
+    </div>
+
+    <section class="card">
+
+      <!-- Lottie animation -->
+      <div class="animation-box">
+        <dotlottie-wc
+          src="https://lottie.host/c8ab108b-1913-4140-be34-898f4873d167/Wa9tZC4zoX.lottie"
+          autoplay
+          loop>
+        </dotlottie-wc>
+      </div>
+
+      <div class="eyebrow">
+        <span></span>
+        اطلاعیه رسمی مدیریت
+      </div>
+
+      <h1>بازگشت به‌زودی</h1>
+
+      <p class="description">
+        مینی گیم به طور موقت از دسترس خارج شده.
+ممکنه چندروز طول بکشه ولی به زودی برمیگردیم.
+بستگی داره اوضاع کی آروم شه(مشکل فنی نیست)
+      </p>
+
+      <div class="separator"></div>
+
+      <section class="contact">
+        <div class="contact-heading">
+          <div class="mail-icon">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="3"/>
+              <path d="m4 7 8 6 8-6"/>
+            </svg>
+          </div>
+
+          <div>
+            <div class="contact-title">ارتباط با مدیریت سایت</div>
+            <div class="contact-subtitle">
+              برای پرسش‌ها و پیگیری‌های ضروری
+            </div>
+          </div>
+        </div>
+
+        <a class="email"
+           href="mailto:erertebat.sr@atomicmail.io">
+          <span>erertebat.sr@atomicmail.io</span>
+          <svg viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round"
+               aria-hidden="true">
+            <path d="M7 17 17 7M7 7h10v10"/>
+          </svg>
+        </a>
+
+        <p class="contact-note">
+          برای ارتباط مستقیم با مدیریت، روی نشانی ایمیل بالا بزنید.
+        </p>
+      </section>
+
+    </section>
+
+    <footer>
+      از شکیبایی شما سپاسگزاریم.
+      <br>
+      <span class="brand">با احترام، مدیریت وب‌سایت</span>
+    </footer>
+
+  </main>
+
+  <!-- Lottie player -->
+  <script
+    type="module"
+    src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js">
+  </script>
+
+</body>
+</html>
